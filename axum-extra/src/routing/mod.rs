@@ -1,7 +1,7 @@
 //! Additional types for defining routes.
 
 use axum::{
-    handler::{HandlerWithoutStateExt},
+    handler::HandlerWithoutStateExt,
     http::Request,
     response::{IntoResponse, Redirect},
     routing::{any, MethodRouter},
