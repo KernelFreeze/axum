@@ -1,7 +1,7 @@
 //! Additional types for defining routes.
 
 use axum::{
-    handler::{Handler, HandlerWithoutStateExt},
+    handler::{HandlerWithoutStateExt},
     http::Request,
     response::{IntoResponse, Redirect},
     routing::{any, MethodRouter},
@@ -14,6 +14,9 @@ mod resource;
 
 #[cfg(feature = "spa")]
 mod spa;
+
+#[cfg(feature = "typed-routing")]
+use axum::handler::Handler;
 
 #[cfg(feature = "typed-routing")]
 mod typed;
