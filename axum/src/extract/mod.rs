@@ -2,6 +2,7 @@
 
 use http::header::{self, HeaderMap};
 
+#[cfg(feature = "tokio")]
 pub mod connect_info;
 pub mod path;
 pub mod rejection;
@@ -21,7 +22,6 @@ pub use axum_core::extract::{DefaultBodyLimit, FromRef, FromRequest, FromRequest
 #[doc(inline)]
 #[allow(deprecated)]
 pub use self::{
-    connect_info::ConnectInfo,
     content_length_limit::ContentLengthLimit,
     host::Host,
     path::Path,
@@ -29,6 +29,10 @@ pub use self::{
     request_parts::{BodyStream, RawBody},
     state::State,
 };
+
+#[doc(inline)]
+#[cfg(feature = "tokio")]
+pub use self::connect_info::ConnectInfo;
 
 #[doc(no_inline)]
 #[cfg(feature = "json")]

@@ -42,6 +42,8 @@
 //! The "Hello, World!" of axum is:
 //!
 //! ```rust,no_run
+//! # use tokio_cr as tokio;
+//!
 //! use axum::{
 //!     routing::get,
 //!     Router,
@@ -350,6 +352,7 @@
 //! `matched-path` | Enables capturing of every request's router path and the [`MatchedPath`] extractor | Yes
 //! `multipart` | Enables parsing `multipart/form-data` requests with [`Multipart`] | No
 //! `original-uri` | Enables capturing of every request's original URI and the [`OriginalUri`] extractor | Yes
+//! `tokio` | Enables `tokio` as a dependency and `axum::Server`, `SSE` and `extract::connect_info` types. | Yes
 //! `tower-log` | Enables `tower`'s `log` feature | Yes
 //! `ws` | Enables WebSockets support via [`extract::ws`] | No
 //! `form` | Enables the `Form` extractor | Yes
@@ -461,6 +464,7 @@ pub use async_trait::async_trait;
 pub use headers;
 #[doc(no_inline)]
 pub use http;
+#[cfg(feature = "tokio")]
 #[doc(no_inline)]
 pub use hyper::Server;
 
